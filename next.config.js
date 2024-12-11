@@ -3,7 +3,8 @@ const nextConfig = {
     env: {
         API_HOST: process.env.API_HOST
       },
-      distDir: 'build'
+      distDir: 'out',
+      output: 'export'
 }
 
 module.exports = nextConfig
