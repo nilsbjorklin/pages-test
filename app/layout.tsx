@@ -3,9 +3,9 @@ import { Metadata, Viewport } from "next";
 import clsx from "clsx";
 
 import { Providers } from "./providers";
+import MenuHeader from "./components/menu-header";
 
 import { fontSans } from "@/config/fonts";
-import MenuHeader from "./components/menu-header";
 
 export const metadata: Metadata = {
   title: "Pages test",
@@ -18,11 +18,20 @@ export const viewport: Viewport = {
   ],
 };
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   return (
     <html suppressHydrationWarning lang="en">
       <head />
-      <body className={clsx("min-h-screen bg-background font-sans antialiased", fontSans.variable)}>
+      <body
+        className={clsx(
+          "min-h-screen bg-background font-sans antialiased",
+          fontSans.variable,
+        )}
+      >
         <Providers themeProps={{ attribute: "class", defaultTheme: "dark" }}>
           <MenuHeader />
           <main className="container mx-auto max-w-xl">{children}</main>
